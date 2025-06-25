@@ -1,0 +1,661 @@
+:root {
+    --primary-dark: #1a1a1a;
+    --primary-light: #ffffff;
+    --accent-color: #4a90e2;
+    --text-dark: #333333;
+    --text-light: #ffffff;
+    --transition-speed: 0.3s;
+}
+
+/* Theme Colors */
+[data-theme="light"] {
+    --bg-color: var(--primary-light);
+    --text-color: var(--text-dark);
+    --divider-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --bg-color: var(--primary-dark);
+    --text-color: var(--text-light);
+    --divider-color: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/></svg>') 12 12, auto;
+}
+
+.logo-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    letter-spacing: 2px;
+    animation: logoGlow 2s infinite alternate;
+}
+
+.clock-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    padding: 10px;
+}
+
+.clock-face {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 15px 25px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.clock-face:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px 0 rgba(31, 38, 135, 0.47);
+}
+
+.clock-display {
+    position: relative;
+    z-index: 2;
+}
+
+#digital-clock {
+    font-size: 1.8rem;
+    color: #fff;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    font-family: 'Poppins', monospace;
+    position: relative;
+}
+
+.clock-decoration {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.clock-decoration span {
+    position: absolute;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.2));
+    border-radius: 50%;
+}
+
+.clock-decoration span:nth-child(1) {
+    width: 60px;
+    height: 60px;
+    top: -20px;
+    left: -20px;
+    animation: float-slow 6s infinite alternate;
+}
+
+.clock-decoration span:nth-child(2) {
+    width: 40px;
+    height: 40px;
+    bottom: -10px;
+    right: -10px;
+    animation: float-slow 4s infinite alternate-reverse;
+}
+
+@keyframes float-slow {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(10px, 10px);
+    }
+}
+
+.week-section {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    text-align: center;
+    color: #fff;
+    z-index: 2;
+}
+
+h2 {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.bubble-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    animation: float 6s infinite;
+}
+
+/* Week-specific styles */
+#week1 {
+    background: linear-gradient(45deg, #2c3e50, #3498db);
+}
+
+#week2 {
+    background: linear-gradient(45deg, #27ae60, #2ecc71);
+}
+
+#week3 {
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+}
+
+#week4 {
+    background: linear-gradient(45deg, #16a085, #1abc9c);
+}
+
+#week5 {
+    background: linear-gradient(45deg, #8e44ad, #9b59b6);
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+    }
+    25% {
+        transform: translateY(-20px) translateX(10px);
+    }
+    50% {
+        transform: translateY(-35px) translateX(-15px);
+    }
+    75% {
+        transform: translateY(-20px) translateX(15px);
+    }
+}
+
+@keyframes logoGlow {
+    from {
+        filter: drop-shadow(0 0 2px rgba(255,255,255,0.7));
+    }
+    to {
+        filter: drop-shadow(0 0 10px rgba(255,255,255,0.9));
+    }
+}
+
+/* Parallax effect classes */
+.parallax {
+    transform: translateY(var(--parallax-offset));
+    transition: transform 0.1s ease-out;
+}
+
+/* Speech Bubbles Styles */
+.speech-bubble {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    max-width: 300px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: all 0.5s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.speech-bubble img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+    transition: transform 0.3s ease;
+}
+
+.speech-bubble:hover img {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.speech-bubble p {
+    color: #fff;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 300;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: inherit;
+    border: inherit;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+.left-bubble {
+    left: 10%;
+    top: 30%;
+    animation: floatBubble 6s infinite ease-in-out;
+}
+
+.left-bubble::before {
+    left: -10px;
+    top: 30px;
+    transform: rotate(-45deg);
+}
+
+.right-bubble {
+    right: 10%;
+    top: 50%;
+    animation: floatBubble 7s infinite ease-in-out reverse;
+}
+
+.right-bubble::before {
+    right: -10px;
+    top: 30px;
+    transform: rotate(135deg);
+}
+
+.center-bubble {
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+    animation: floatBubble 8s infinite ease-in-out;
+}
+
+.center-bubble::before {
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-135deg);
+}
+
+@keyframes floatBubble {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(-10px, -15px);
+    }
+    50% {
+        transform: translate(10px, -25px);
+    }
+    75% {
+        transform: translate(-5px, -15px);
+    }
+}
+
+/* Active state for bubbles */
+.week-section.active .speech-bubble {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+.week-section.active .speech-bubble:nth-child(2) {
+    transition-delay: 0.6s;
+}
+
+.week-section.active .speech-bubble:nth-child(3) {
+    transition-delay: 0.9s;
+}
+
+/* Responsive adjustments for speech bubbles */
+@media (max-width: 768px) {
+    .speech-bubble {
+        max-width: 250px;
+        padding: 15px;
+    }
+
+    .speech-bubble img {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 10px;
+    }
+
+    .speech-bubble p {
+        font-size: 0.9rem;
+    }
+
+    .left-bubble {
+        left: 5%;
+    }
+
+    .right-bubble {
+        right: 5%;
+    }
+
+    .center-bubble {
+        top: 15%;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 2.5rem;
+    }
+    
+    .clock-face {
+        padding: 12px 20px;
+    }
+    
+    #digital-clock {
+        font-size: 1.4rem;
+    }
+}
+
+/* Additional Speech Bubble Positions */
+.top-left-bubble {
+    left: 15%;
+    top: 15%;
+    animation: floatBubble 7.5s infinite ease-in-out;
+}
+
+.top-right-bubble {
+    right: 15%;
+    top: 15%;
+    animation: floatBubble 8.5s infinite ease-in-out reverse;
+}
+
+.bottom-left-bubble {
+    left: 15%;
+    bottom: 15%;
+    animation: floatBubble 9s infinite ease-in-out;
+}
+
+.bottom-right-bubble {
+    right: 15%;
+    bottom: 15%;
+    animation: floatBubble 7.8s infinite ease-in-out reverse;
+}
+
+.center-left-bubble {
+    left: 25%;
+    top: 50%;
+    animation: floatBubble 6.5s infinite ease-in-out;
+}
+
+.center-right-bubble {
+    right: 25%;
+    top: 50%;
+    animation: floatBubble 8.2s infinite ease-in-out reverse;
+}
+
+.small-bubble {
+    max-width: 200px;
+    padding: 15px;
+    transform: scale(0.85);
+}
+
+.small-bubble img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.small-bubble p {
+    font-size: 0.9rem;
+}
+
+/* Enhanced animations for varied movement */
+@keyframes floatBubbleAlt {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(-15px, -20px) rotate(-2deg);
+    }
+    50% {
+        transform: translate(10px, -30px) rotate(2deg);
+    }
+    75% {
+        transform: translate(-5px, -10px) rotate(-1deg);
+    }
+}
+
+/* Apply alternate animations to some bubbles */
+.top-left-bubble, .bottom-right-bubble {
+    animation-name: floatBubbleAlt;
+}
+
+/* Staggered delays for new bubbles */
+.week-section.active .speech-bubble:nth-child(4) {
+    transition-delay: 1.2s;
+}
+
+.week-section.active .speech-bubble:nth-child(5) {
+    transition-delay: 1.5s;
+}
+
+.week-section.active .speech-bubble:nth-child(6) {
+    transition-delay: 1.8s;
+}
+
+.week-section.active .speech-bubble:nth-child(7) {
+    transition-delay: 2.1s;
+}
+
+.week-section.active .speech-bubble:nth-child(8) {
+    transition-delay: 2.4s;
+}
+
+.week-section.active .speech-bubble:nth-child(9) {
+    transition-delay: 2.7s;
+}
+
+/* Responsive adjustments for new bubbles */
+@media (max-width: 768px) {
+    .speech-bubble {
+        max-width: 200px;
+        padding: 15px;
+    }
+
+    .small-bubble {
+        max-width: 150px;
+        padding: 10px;
+    }
+
+    .top-left-bubble, .top-right-bubble {
+        top: 10%;
+    }
+
+    .bottom-left-bubble, .bottom-right-bubble {
+        bottom: 10%;
+    }
+
+    .center-left-bubble {
+        left: 10%;
+    }
+
+    .center-right-bubble {
+        right: 10%;
+    }
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: transform 0.2s;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+.sun-and-moon {
+    transition: transform 0.5s;
+}
+
+[data-theme="dark"] .sun-and-moon {
+    transform: rotate(180deg);
+}
+
+/* Progress Indicator */
+.progress-indicator {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.progress-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--divider-color);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.progress-dot.active {
+    background: var(--accent-color);
+    transform: scale(1.2);
+}
+
+/* SVG Dividers */
+.svg-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.svg-divider svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 120px;
+}
+
+.svg-divider path {
+    fill: var(--divider-color);
+}
+
+/* Section Descriptions */
+.section-description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.week-section.active .section-description {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 3D Tilt Effect */
+.speech-bubble {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.speech-bubble:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+}
+
+/* Responsive Design Updates */
+@media (max-width: 768px) {
+    .progress-indicator {
+        right: 10px;
+    }
+
+    .progress-dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .section-description {
+        font-size: 1rem;
+    }
+
+    .svg-divider svg {
+        height: 60px;
+    }
+}
+
+/* Loading Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.content {
+    animation: fadeIn 1s ease-out;
+}
+
+/* Accessibility Focus Styles */
+:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Add smooth scrolling to the whole page */
+html {
+    scroll-behavior: smooth;
+} 

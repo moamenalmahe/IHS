@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Themed Weeks - Interactive Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preload" as="image" href="https://img.icons8.com/fluency/96/meditation-guru.png">
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" aria-label="Toggle dark/light mode">
+        <svg class="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+            <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor" />
+            <g class="sun-beams" stroke="currentColor">
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+            </g>
+        </svg>
+    </button>
+
+    <!-- Progress Indicator -->
+    <div class="progress-indicator" aria-label="Reading progress">
+        <div class="progress-dot" data-week="1" aria-label="Week 1"></div>
+        <div class="progress-dot" data-week="2" aria-label="Week 2"></div>
+        <div class="progress-dot" data-week="3" aria-label="Week 3"></div>
+        <div class="progress-dot" data-week="4" aria-label="Week 4"></div>
+        <div class="progress-dot" data-week="5" aria-label="Week 5"></div>
+    </div>
+
+    <div class="logo-container">
+        <div class="logo" role="banner">IHS</div>
+    </div>
+    
+    <div class="clock-container">
+        <div id="digital-clock" aria-live="polite"></div>
+    </div>
+
+    <main>
+        <section class="week-section" id="week1" aria-label="Week 1: Mental Health">
+            <div class="content">
+                <h1>Week 1: Mental Health</h1>
+                <p class="section-description">"Take care of your mind. It's your power center."</p>
+                <div class="bubble-container" role="list">
+                    <div class="speech-bubble left-bubble">
+                        <img src="https://img.icons8.com/fluency/96/meditation-guru.png" alt="Meditation">
+                        <p>"Peace of mind is not the absence of conflict, but the ability to remain calm within the storm."</p>
+                    </div>
+                    <div class="speech-bubble right-bubble">
+                        <img src="https://img.icons8.com/fluency/96/brain-mindfulness.png" alt="Mindfulness">
+                        <p>"Your mental health is a priority. Your happiness is essential. Your self-care is a necessity."</p>
+                    </div>
+                    <div class="speech-bubble center-bubble">
+                        <img src="https://img.icons8.com/fluency/96/mental-health.png" alt="Mental Health">
+                        <p>"Self-care is not selfish. You cannot serve from an empty vessel."</p>
+                    </div>
+                    <div class="speech-bubble top-left-bubble">
+                        <img src="https://img.icons8.com/fluency/96/yoga.png" alt="Yoga">
+                        <p>"Breathe in peace, breathe out stress. Your mind is your sanctuary."</p>
+                    </div>
+                    <div class="speech-bubble bottom-right-bubble">
+                        <img src="https://img.icons8.com/fluency/96/positive-thinking.png" alt="Positive Thinking">
+                        <p>"Every day is a fresh start. Your mind is a garden, your thoughts are the seeds."</p>
+                    </div>
+                    <div class="speech-bubble top-right-bubble">
+                        <img src="https://img.icons8.com/fluency/96/sleeping.png" alt="Rest">
+                        <p>"Rest and self-care are so important. When you take time to replenish your spirit, it allows you to serve others from the overflow."</p>
+                    </div>
+                    <div class="speech-bubble bottom-left-bubble">
+                        <img src="https://img.icons8.com/fluency/96/group-task.png" alt="Support">
+                        <p>"You are not alone. Seeking support is not a sign of weakness, it's a sign of strength."</p>
+                    </div>
+                    <div class="speech-bubble center-left-bubble small-bubble">
+                        <img src="https://img.icons8.com/fluency/96/heart-with-pulse.png" alt="Wellness">
+                        <p>"Take care of your mind, and it will take care of you."</p>
+                    </div>
+                    <div class="speech-bubble center-right-bubble small-bubble">
+                        <img src="https://img.icons8.com/fluency/96/sun.png" alt="Hope">
+                        <p>"Hope is the light that guides us through darkness."</p>
+                    </div>
+                </div>
+            </div>
+            <div class="svg-divider">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="currentColor"></path>
+                </svg>
+            </div>
+        </section>
+
+        <section class="week-section" id="week2" aria-label="Week 2: Physical Activity">
+            <div class="content">
+                <h2>Week 2</h2>
+                <p class="section-description">"Movement is medicine for both body and mind."</p>
+                <div class="bubble-container"></div>
+            </div>
+            <div class="svg-divider">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="currentColor"></path>
+                </svg>
+            </div>
+        </section>
+
+        <section class="week-section" id="week3" aria-label="Week 3: Nutrition">
+            <div class="content">
+                <h2>Week 3</h2>
+                <p class="section-description">"You are what you eat – fuel your future."</p>
+                <div class="bubble-container"></div>
+            </div>
+            <div class="svg-divider">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="currentColor"></path>
+                </svg>
+            </div>
+        </section>
+
+        <section class="week-section" id="week4" aria-label="Week 4: Sleep & Recovery">
+            <div class="content">
+                <h2>Week 4</h2>
+                <p class="section-description">"Rest is not a luxury; it's a necessity."</p>
+                <div class="bubble-container"></div>
+            </div>
+            <div class="svg-divider">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M602.45,3.86h0S572.9,116.24,281.94,120H923C632,116.24,602.45,3.86,602.45,3.86Z" fill="currentColor"></path>
+                </svg>
+            </div>
+        </section>
+
+        <section class="week-section" id="week5" aria-label="Week 5: Social Well-being">
+            <div class="content">
+                <h2>Week 5</h2>
+                <p class="section-description">"Connection is the cure for disconnection."</p>
+                <div class="bubble-container"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
