@@ -37,6 +37,9 @@ IHS/
 
 ## Contact
 - **Developer:** Moamen Almahe
+
+- <img src="assets/screenshot.png" alt="Project Screenshot" width="600">
+
 - **Email:** moamenalmahe10@gmail.com
 
 ---
